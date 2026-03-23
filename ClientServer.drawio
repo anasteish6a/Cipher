@@ -5,19 +5,19 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="bxEjE5pjgFVGoUpfVavb-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="MyTcpServer" vertex="1">
-          <mxGeometry height="160" width="250" x="130" y="40" as="geometry" />
+          <mxGeometry height="160" width="280" x="40" y="40" as="geometry" />
         </mxCell>
         <mxCell id="bxEjE5pjgFVGoUpfVavb-2" parent="bxEjE5pjgFVGoUpfVavb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- mTcpServer: QTcpServer*&lt;div&gt;- clients: QList&amp;lt;MyClient&amp;gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="44" width="250" y="26" as="geometry" />
+          <mxGeometry height="44" width="280" y="26" as="geometry" />
         </mxCell>
         <mxCell id="bxEjE5pjgFVGoUpfVavb-3" parent="bxEjE5pjgFVGoUpfVavb-1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="250" y="70" as="geometry" />
+          <mxGeometry height="8" width="280" y="70" as="geometry" />
         </mxCell>
         <mxCell id="bxEjE5pjgFVGoUpfVavb-4" parent="bxEjE5pjgFVGoUpfVavb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ MyTcpServer(QObject*)&lt;div&gt;+~MyTcpServer()&lt;/div&gt;&lt;div&gt;+ slotNewConnection(): void&lt;/div&gt;&lt;div&gt;+ slotServerRead(): void&lt;/div&gt;&lt;div&gt;+ slotOnClientDisconnected(): void&lt;/div&gt;" vertex="1">
-          <mxGeometry height="82" width="250" y="78" as="geometry" />
+          <mxGeometry height="82" width="280" y="78" as="geometry" />
         </mxCell>
         <mxCell id="bxEjE5pjgFVGoUpfVavb-5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="MyClient" vertex="1">
-          <mxGeometry height="160" width="250" x="440" y="40" as="geometry" />
+          <mxGeometry height="160" width="250" x="520" y="40" as="geometry" />
         </mxCell>
         <mxCell id="bxEjE5pjgFVGoUpfVavb-6" parent="bxEjE5pjgFVGoUpfVavb-5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- mTcpSocket: QTcpSocket *&lt;div&gt;- login: QString&lt;/div&gt;&lt;div&gt;- id_connection: int&lt;/div&gt;" vertex="1">
           <mxGeometry height="54" width="250" y="26" as="geometry" />
@@ -29,13 +29,13 @@
           <mxGeometry height="60" width="250" y="100" as="geometry" />
         </mxCell>
         <mxCell id="bxEjE5pjgFVGoUpfVavb-10" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="FunctionsForServer" vertex="1">
-          <mxGeometry height="130" width="245" x="130" y="240" as="geometry" />
+          <mxGeometry height="130" width="280" x="40" y="320" as="geometry" />
         </mxCell>
         <mxCell id="bxEjE5pjgFVGoUpfVavb-12" parent="bxEjE5pjgFVGoUpfVavb-10" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="245" y="26" as="geometry" />
+          <mxGeometry height="8" width="280" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="bxEjE5pjgFVGoUpfVavb-11" parent="bxEjE5pjgFVGoUpfVavb-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ parsing(int, QString): QByteArray&lt;div&gt;+ auth&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(int, QString, QString): QByteArray&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ reg&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;(QString, QString, QString): QByteArray&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;+ lookmystat(int): QByteArray&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;+ lookallstst(): QByteArray&lt;/span&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="96" width="245" y="34" as="geometry" />
+        <mxCell id="bxEjE5pjgFVGoUpfVavb-11" parent="bxEjE5pjgFVGoUpfVavb-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ parsing(int, QString): QByteArray&lt;div&gt;+ auth&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(int, QString, QString): QByteArray&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ reg&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;(QString, QString, QString): QByteArray&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;+ lookmystat(int): QByteArray&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;+ lookallstat(): QByteArray&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="96" width="280" y="34" as="geometry" />
         </mxCell>
         <mxCell id="bxEjE5pjgFVGoUpfVavb-14" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="MyDB" vertex="1">
           <mxGeometry height="86" width="160" x="520" y="250" as="geometry" />
@@ -60,6 +60,18 @@
         </mxCell>
         <mxCell id="bxEjE5pjgFVGoUpfVavb-21" parent="bxEjE5pjgFVGoUpfVavb-18" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ method(type): type" vertex="1">
           <mxGeometry height="26" width="160" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7dIrwjYaQH_NOYHpwQ4l-1" edge="1" parent="1" source="bxEjE5pjgFVGoUpfVavb-5" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=1;exitX=0;exitY=0.088;exitDx=0;exitDy=0;exitPerimeter=0;curved=0;entryX=0.997;entryY=0.08;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Times New Roman;" target="bxEjE5pjgFVGoUpfVavb-1" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="270" y="290" as="sourcePoint" />
+            <mxPoint x="300" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7dIrwjYaQH_NOYHpwQ4l-6" edge="1" parent="1" source="bxEjE5pjgFVGoUpfVavb-4" style="html=1;verticalAlign=bottom;endArrow=none;rounded=0;exitX=0.43;exitY=0.994;exitDx=0;exitDy=0;exitPerimeter=0;curved=1;endFill=0;entryX=0.435;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;" target="bxEjE5pjgFVGoUpfVavb-10" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="176.03999999999996" y="210.00000000000003" as="sourcePoint" />
+            <mxPoint x="150" y="333.28" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
