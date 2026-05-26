@@ -85,8 +85,8 @@ void MyTcpServer::slotNewConnection(){
     clientSocket->write("VIGENERE_ENCRYPT <текст> <ключ> - Шифр Виженера (шифрование)\r\n");
     clientSocket->write("VIGENERE_DECRYPT <текст> <ключ> - Шифр Виженера (расшифровка)\r\n");
     clientSocket->write("SHA512 <текст>                 - Хеширование (заглушка)\r\n");
-    clientSocket->write("BISECTION <a> <b> <eps>        - Метод деления пополам (заглушка)\r\n");
-    clientSocket->write("SHORTEST_PATH <graph> <start> <end> - Дейкстра (заглушка)\r\n");
+    clientSocket->write("BISECTION <a> <b> <eps>        - Метод деления пополам\r\n");
+    clientSocket->write("SHORTEST_PATH <graph> <start> <end> - Кратчайшее расстояние между графами(заглушка)\r\n");
    
 
     connect(clientSocket, &QTcpSocket::readyRead,
@@ -330,9 +330,34 @@ void MyTcpServer::handleSha512(QTcpSocket* socket, const QStringList& params) {
 }
 
 void MyTcpServer::handleBisection(QTcpSocket* socket, const QStringList& params) {
-    Q_UNUSED(params);
-    qDebug() << "[ЗАГЛУШКА] Вызов BISECTION (метод деления пополам)";
-    socket->write("ИНФО: Метод деления пополам еще не реализован (заглушка).\r\n");
+    if (params.size() < 3) {
+        socket->write("Ошибка: BISECTION <a> <b> <epsilon>\r\n");
+        socket->write("Пример: BISECTION 0 2 0.001\r\n");
+        return;
+    }
+
+    double a = params[0].toDouble();
+    double b = params[1].toDouble();
+    double epsilon = params[2].toDouble();
+
+    qDebug() << "[BISECTION] a:" << a << "b:" << b << "epsilon:" << epsilon;
+
+    try {
+        auto mathFunc = [](double x) -> double {
+            return x * x - 2.0;
+        };
+
+        double result = Numerical::bisection(mathFunc, a, b, epsilon);
+
+        QString response = QString("КОРЕНЬ: %1\r\n").arg(result, 0, 'f', 6);
+        response += QString("f(корень) = %1").arg(mathFunc(result), 0, 'f', 10);
+
+        socket->write(response.toUtf8());
+
+    } catch (const std::exception& e) {
+        QString errorMsg = QString("ОШИБКА: %1\r\n").arg(e.what());
+        socket->write(errorMsg.toUtf8());
+    }
 }
 
 void MyTcpServer::handleShortestPath(QTcpSocket* socket, const QStringList& params) {
