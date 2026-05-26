@@ -1,0 +1,52 @@
+#include "bisection.h"
+#include <cmath>
+#include <limits>
+
+namespace Numerical {
+
+    double bisection(MathFunction func, double a, double b, double epsilon) {
+        if (epsilon <= 0) {
+            throw std::invalid_argument("Точность epsilon должна быть положительной.");
+        }
+
+        double fa = func(a);
+        double fb = func(b);
+
+        if (fa * fb >= 0) {
+            throw std::invalid_argument(
+                "Функция должна иметь разные знаки на концах отрезка [a, b]. "
+                "f(a) = " + std::to_string(fa) + ", f(b) = " + std::to_string(fb)
+            );
+        }
+
+        double c = a;
+        const int max_iterations = 1000;
+        int iter = 0;
+
+        while ((b - a) / 2.0 > epsilon && iter < max_iterations) {
+            c = (a + b) / 2.0;
+            double fc = func(c);
+
+            if (fc == 0.0) {
+                return c;
+            }
+
+            if (fa * fc < 0) {
+                b = c;
+                fb = fc;
+            } else {
+                a = c;
+                fa = fc;
+            }
+
+            ++iter;
+        }
+
+        if (iter >= max_iterations) {
+            throw std::runtime_error("Метод не сошелся за " + std::to_string(max_iterations) + " итераций.");
+        }
+
+        return (a + b) / 2.0;
+    }
+
+} // namespace Numerical
